@@ -18,3 +18,24 @@
 
 // 7. Once you've found the current user's most compatible friend, display the result as a modal pop-up.
 //    * The modal should display both the name and picture of the closest match.
+
+var tableData = require('../data/friends');
+var path = require('path');
+
+module.exports = function (app) {
+
+    // Displays a single table, or returns false
+    app.get("/api/friends/:friends", function (req, res) {
+        res.json(tableData);
+    });
+
+    // Create New tables - takes in JSON input
+    app.post("/api/tables", function (req, res) {
+        // req.body hosts is equal to the JSON post sent from the user
+        // This works because of our body-parser middleware
+        var newTable = req.body;
+        tables.push(newTable);
+
+        res.json(true);
+    });
+}
