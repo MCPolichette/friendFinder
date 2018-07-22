@@ -28,10 +28,10 @@
             <strong>About You</strong>
         </h3>
         <h4>Name (Required)</h4>
-        <input type="text" id="name" class="form-control" required>
+        <input type="text" id="name" class="form-control notNull" required>
 
         <h4>Link to Photo Image (Required)</h4>
-        <input type="text" id="photo" class="form-control" required>
+        <input type="text" id="photo" class="form-control notNull" required>
 
         <hr>
 
@@ -39,7 +39,7 @@
             <strong>Question 1</strong>
         </h3>
         <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
-        <select class="chosen-select" id="q1">
+        <select class="chosen-select notNull" id="q1">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -52,7 +52,7 @@
             <strong>Question 2</strong>
         </h3>
         <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
-        <select class="chosen-select" id="q2">
+        <select class="chosen-select notNull" id="q2">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -66,7 +66,7 @@
             <strong>Question 3</strong>
         </h3>
         <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
-        <select class="chosen-select" id="q3">
+        <select class="chosen-select notNull" id="q3">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -80,7 +80,7 @@
             <strong>Question 4</strong>
         </h3>
         <h4>You rarely do something just out of sheer curiosity.</h4>
-        <select class="chosen-select" id="q4">
+        <select class="chosen-select notNull" id="q4">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -94,7 +94,7 @@
             <strong>Question 5</strong>
         </h3>
         <h4>People can rarely upset you.</h4>
-        <select class="chosen-select" id="q5">
+        <select class="chosen-select notNull" id="q5">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -108,7 +108,7 @@
             <strong>Question 6</strong>
         </h3>
         <h4>It is often difficult for you to relate to other people’s feelings.</h4>
-        <select class="chosen-select" id="q6">
+        <select class="chosen-select notNull" id="q6">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -122,7 +122,7 @@
             <strong>Question 7</strong>
         </h3>
         <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
-        <select class="chosen-select" id="q7">
+        <select class="chosen-select notNull" id="q7">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -135,7 +135,7 @@
             <strong>Question 8</strong>
         </h3>
         <h4>You rarely get carried away by fantasies and ideas.</h4>
-        <select class="chosen-select" id="q8">
+        <select class="chosen-select notNull" id="q8">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -148,7 +148,7 @@
             <strong>Question 9</strong>
         </h3>
         <h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h4>
-        <select class="chosen-select" id="q9">
+        <select class="chosen-select notNull" id="q9">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -161,7 +161,7 @@
             <strong>Question 10</strong>
         </h3>
         <h4>You feel more energetic after spending time with a group of people.</h4>
-        <select class="chosen-select" id="q10">
+        <select class="chosen-select notNull" id="q10">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -204,7 +204,7 @@
                 </div>
                 <div class="modal-body">
                     <h2 id="match-name"></h2>
-                    <img id="match-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-default" data-dismiss="modal">Close</button>
@@ -219,36 +219,54 @@
 
         $("#submit").on("click", function (event) {
             event.preventDefault()
+            function validation() {
+                var isValid = true;
+                console.log(isValid)
+                // searches through the "notNull" class on the questions and determines 
+                // wether or not all the fields have been filled out
+                $(".notNull").each(function () {
+                    if ($(this).val === "" || '') {
+                        isValid = false;
 
-            var user = {
-                name: $('#name').val(),
-                photo: $('#photo').val(),
-                scores: [
-                    $("#q1 :selected").val(),
-                    $("#q2 :selected").val(),
-                    $("#q3 :selected").val(),
-                    $("#q4 :selected").val(),
-                    $("#q5 :selected").val(),
-                    $("#q6 :selected").val(),
-                    $("#q7 :selected").val(),
-                    $("#q8 :selected").val(),
-                    $("#q9 :selected").val(),
-                    $("#q10 :selected").val()
-                ]
+                    }; console.log($(this).val)
+                })
+                return isValid;
             }
+            if (validation() === true) {
 
-            console.log(user);
+                var user = {
+                    name: $('#name').val(),
+                    photo: $('#photo').val(),
+                    scores: [
+                        $("#q1 :selected").val(),
+                        $("#q2 :selected").val(),
+                        $("#q3 :selected").val(),
+                        $("#q4 :selected").val(),
+                        $("#q5 :selected").val(),
+                        $("#q6 :selected").val(),
+                        $("#q7 :selected").val(),
+                        $("#q8 :selected").val(),
+                        $("#q9 :selected").val(),
+                        $("#q10 :selected").val()
+                    ]
+                }
+
+                console.log(user);
+                // Creating a variable for open window address,
+                var url = window.location.origin
 
 
-            $.ajax({
-                method: "POST",
-                url: "/data/friends",
-                data: user
-            }).then(function (data) {
-                console.log(data);
-            })
-            //$.post("/data/friends", user) //this is the same thign jsut shorthand
-
+                $.ajax({
+                    method: "POST",
+                    url: "api/friends",
+                    data: user
+                }).then(function (data) {
+                    console.log(data);
+                })
+                //$.post("/data/friends", user) //this is the same thign jsut shorthand
+            } else {
+                alert("Please fill out the entire form")
+            }
         })
 
     </script>
