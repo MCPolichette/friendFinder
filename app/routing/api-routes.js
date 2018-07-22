@@ -16,23 +16,35 @@ module.exports = function (app) {
         var user = req.body;
         // creating variables to compare scores
         var user_scores = user.scores;
-        var best_match = 0;
-        var score_array = [];
 
-        // for-loop goes through current friends data to compare scores
-        for (var i = 0; i < friend_data.length; i++) {
-            var score_difference = 0;
-            for (j = 0; j < user_scores.length; j++) {
-                score_difference = score_difference + (Math.abs(parseInt(friend_data[i].scores[j]) - parseInt(user_scores[j])));
-            };
-            score_array.push(score_difference);
-        }
-        for (var i = 0; i < score_array; i++) {
-            if (score_array[i] <= score_array[best_match]) {
-                best_match = i;
+        var score_array = [];
+        function bestMatch() {
+            var best_match = 0;
+            // for-loop goes through current friends data to compare scores
+            for (var i = 0; i < friend_data.length; i++) {
+                var score_difference = 0;
+                console.log(friend_data[i].scores)
+
+                for (j = 0; j < user_scores.length; j++) {
+                    score_difference = score_difference + (Math.abs(parseInt(friend_data[i].scores[j]) - parseInt(user_scores[j])));
+                    console.log("user" + user_scores[j]);
+                    console.log(score_difference + "scoredifference");
+                };
+
+                score_array.push(score_difference);
+                console.log(score_array + " SCORE ARRAY")
             }
+            for (var i = 0; i < score_array.length; i++) {
+                if (score_array[i] <= score_array[best_match]) {
+                    best_match = i;
+                }
+            }
+            console.log(best_match)
+            return best_match;
         }
-        var bestFriend = friend_data[best_match]
+
+
+        var bestFriend = friend_data[bestMatch()]
         res.json(bestFriend);
         friend_data.push(user);
 

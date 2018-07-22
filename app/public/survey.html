@@ -203,8 +203,14 @@
                     </h2>
                 </div>
                 <div class="modal-body">
-                    <h2 id="match-name"></h2>
-
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h2 id="bestFriend"></h2>
+                        </div>
+                        <div class="col-xs-6">
+                            <img id="bestFriendPic" src='' alt="no image" width=300px>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-default" data-dismiss="modal">Close</button>
@@ -262,8 +268,11 @@
                     data: user
                 }).then(function (data) {
                     console.log(data);
+                    $("#bestFriendPic").attr("src", data.photo)
+                    $("#bestFriend").text(data.name)
+                    $("#results-modal").modal('show');
                 })
-                //$.post("/data/friends", user) //this is the same thign jsut shorthand
+
             } else {
                 alert("Please fill out the entire form")
             }
