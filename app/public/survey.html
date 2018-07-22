@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css">
     <!-- Chosen -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
@@ -24,94 +24,98 @@
         <h2>Survey Questions</h2>
         <hr>
 
-        <!-- Test section -->
-        <input type="range" id="q01" class="slider" name="rangeInput" step="1" min="1" max="5" value="3">
-        <label id="label-q01">Adjust Slider to Answer</label>
-        <input type="range" id="q02" class="slider" name="rangeInput" step="1" min="1" max="5" value="3">
-        <label id="label-q02">Adjust Slider to Answer</label>
-        <!--  TEST ENDED-->
-        <div class="row">
-            <h3>
-                <strong>About You</strong>
-            </h3>
-            <h5>Name (Required)</h5>
-            <input type="text" id="name" class="form-control notNull" required>
+        <div class="row ">
+            <div class="col-md-6 questionBox">
+                <h3>
+                    <strong>About You</strong>
+                </h3>
+                <h5>Name (Required)</h5>
+                <input type="text" id="name" class="form-control notNull" required>
 
-            <h5>Link to Photo Image (Required)</h5>
-            <input type="text" id="photo" class="form-control notNull" required>
+                <h5>Link to Photo Image (Required)</h5>
+                <input type="text" id="photo" class="form-control notNull" required>
+            </div>
         </div>
         <hr>
         <div class="row">
-            <div class="col-md-6">
-                <h5>
+            <div class="col-md-6 questionBox">
+
+                <h4>
                     <strong>Question 1</strong>
-                </h5>
-                <h5>Your mind is always buzzing with unexplored ideas and plans.</h5>
+                </h4>
+                <h5>You like peeling dried elmers glue off your fingertips.</h5>
                 <input type="range" id="q1" class="slider" name="rangeInput" step="1" min="1" max="5" value="3">
                 <label id="label-q1">Adjust Slider to Answer</label>
-                <h5>
+                <hr>
+
+                <h4>
                     <strong>Question 2</strong>
-                </h5>
-                <h5>Generally speaking, you rely more on your experience than your imagination.</h5>
+                </h4>
+                <h5>Generally speaking, you appreciate when strangers give you compliments.</h5>
                 <input type="range" id="q2" class="slider" name="rangeInput" step="1" min="1" max="5" value="3">
                 <label id="label-q2">Adjust Slider to Answer</label>
-                <h5>
+                <hr>
+                <h4>
                     <strong>Question 3</strong>
-                </h5>
-                <h5>You find it easy to stay relaxed and focused even when there is some pressure.</h5>
+                </h4>
+                <h5>You prefer being outside over being inside.</h5>
                 <input type="range" id="q3" class="slider" name="rangeInput" step="1" min="1" max="5" value="3">
                 <label id="label-q3">Adjust Slider to Answer</label>
-                <h5>
+                <hr>
+                <h4>
                     <strong>Question 4</strong>
-                </h5>
-                <h5>You rarely do something just out of sheer curiosity.</h5>
+                </h4>
+                <h5>You get suspicous looks from sheep, when you walk passed them.</h5>
                 <input type="range" id="q4" class="slider" name="rangeInput" step="1" min="1" max="5" value="3">
                 <label id="label-q4">Adjust Slider to Answer</label>
-                <h5>
+                <hr>
+                <h4>
                     <strong>Question 5</strong>
-                </h5>
-                <h5>People can rarely upset you.</h5>
+                </h4>
+                <h5>Clowns can rarely upset you.</h5>
                 <input type="range" id="q5" class="slider" name="rangeInput" step="1" min="1" max="5" value="3">
                 <label id="label-q5">Adjust Slider to Answer</label>
+                <hr>
             </div>
 
-            <div class="col-md-6">
-                <h5>
+            <div class="col-md-6 questionBox">
+                <h4>
                     <strong>Question 6</strong>
-                </h5>
-                <h5>It is often difficult for you to relate to other people’s feelings.</h5>
+                </h4>
+                <h5>You believe aliens could have built the pyramids.</h5>
                 <input type="range" id="q6" class="slider" name="rangeInput" step="1" min="1" max="5" value="3">
                 <label id="label-q6">Adjust Slider to Answer</label>
-                <h5>
+                <hr>
+                <h4>
                     <strong>Question 7</strong>
-                </h5>
-                <h5>In a discussion, truth should be more important than people’s sensitivities.</h5>
+                </h4>
+                <h5>Sometimes you are concearned people can hear your thoughts.</h5>
                 <input type="range" id="q7" class="slider" name="rangeInput" step="1" min="1" max="5" value="3">
                 <label id="label-q7">Adjust Slider to Answer</label>
-                <h5>
+                <hr>
+                <h4>
                     <strong>Question 8</strong>
-                </h5>
-                <h5>You think that everyone’s views should be respected regardless of whether they are supported by facts or
-                    not.
+                </h4>
+                <h5>People that talk about crossfit can be somewhat overwhelming.
                 </h5>
                 <input type="range" id="q8" class="slider" name="rangeInput" step="1" min="1" max="5" value="3">
                 <label id="label-q8">Adjust Slider to Answer</label>
-                <h5>
+                <hr>
+                <h4>
                     <strong>Question 9</strong>
-                </h5>
-                <h5>You think that everyone’s views should be respected regardless of whether they are supported by facts or
-                    not.
+                </h4>
+                <h5>The earth is flat
                 </h5>
                 <input type="range" id="q9" class="slider" name="rangeInput" step="1" min="1" max="5" value="3">
                 <label id="label-q9">Adjust Slider to Answer</label>
-
-
-                <h5>
+                <hr>
+                <h4>
                     <strong>Question 10</strong>
-                </h5>
-                <h5>You feel more energetic after spending time with a group of people.</h5>
+                </h4>
+                <h5>Pineapple does NOT belong on pizza.</h5>
                 <input type="range" id="q10" class="slider" name="rangeInput" step="1" min="1" max="5" value="3">
                 <label id="label-q10">Adjust Slider to Answer</label>
+                <hr>
             </div>
             <br>
             <br>
